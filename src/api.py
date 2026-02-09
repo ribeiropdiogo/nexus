@@ -1,6 +1,6 @@
 """
 This file contains the code for the API that servers as the
-contact point with entities trying to consolkidate data.
+contact point with entities trying to consolidate data.
 """
 
 import threading

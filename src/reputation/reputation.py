@@ -38,9 +38,9 @@ class Reputation:
         # Read env vars
         mongo_host = os.getenv("MONGODB_HOST", "localhost")
         mongo_port = int(os.getenv("MONGODB_PORT", 27017))
-        mongo_user = os.getenv("MONGODB_USER", "skald")
-        mongo_pass = os.getenv("MONGODB_PASS", "skald")
-        mongo_db   = os.getenv("MONGODB_DB", "skald")
+        mongo_user = os.getenv("MONGODB_USER", "nexus")
+        mongo_pass = os.getenv("MONGODB_PASS", "nexus")
+        mongo_db   = os.getenv("MONGODB_DB", "nexus")
         # Initialize MongoDB connector
         client = MongoClient(host=mongo_host, port=mongo_port, username=mongo_user, password=mongo_pass)
         self.db = client[mongo_db]
@@ -117,7 +117,7 @@ class Reputation:
             # Check if execution is stateless
             if self.stateful is True:
                 # Get the source from the structure
-                source = self.db.skald.find_one({'sourceId': rating['sourceId']})
+                source = self.db.nexus.find_one({'sourceId': rating['sourceId']})
             else:
                 # Get the entry for the source
                 source = next(s for s in sources
@@ -149,7 +149,7 @@ class Reputation:
                 # Check if execution is stateless
                 if self.stateful is True:
                     # Replace the old entry in the data structure
-                    self.db.skald.update_one(
+                    self.db.nexus.update_one(
                         {'_id': source['_id']},
                         {"$set": {
                             "ratings": R.tolist(),
@@ -189,7 +189,7 @@ class Reputation:
         """
         try:
             # Finds the source and creates it not exists
-            source = self.db.skald.find_one_and_update(
+            source = self.db.nexus.find_one_and_update(
                 {'sourceId': sourceId},
                 {'$setOnInsert': {
                     'sourceId': sourceId,
@@ -220,7 +220,7 @@ class Reputation:
                 source: entry of the source
         """
         try:
-            source = self.db.skald.find_one({'sourceId': sourceId})
+            source = self.db.nexus.find_one({'sourceId': sourceId})
             # Check if the source exists
             if source is not None:
                 # Log result
@@ -248,7 +248,7 @@ class Reputation:
         """
         try:
             # Clear the reputation
-            self.db.skald.drop()
+            self.db.nexus.drop()
             # Return success
             return 1
         except Exception as e:

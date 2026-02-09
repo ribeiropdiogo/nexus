@@ -1,5 +1,5 @@
 """
-This module contains the class of the Skald framework. It 
+This module contains the class of the Nexus framework. It 
 defines the available interface and connects the various 
 modules in the underlying model.
 """
@@ -13,9 +13,9 @@ from fastapi import HTTPException
 from src.consolidation import truthfinderV2
 from src.reputation import reputation
 
-class Skald:
+class Nexus:
     """
-    The Skald class contains the logic required to receive 
+    The Nexus class contains the logic required to receive 
     affirmations from sources, and output the list of 
     confidence scores of each affirmation.
 

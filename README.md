@@ -1,6 +1,6 @@
 # Nexus
 
-Traditional truth discovery approach estimate the truth from a set of values provided by multiple sources, which can be conflicting and heteregoneous. This repository contains **Nexus**, a proof-of-concept of a solution that improves truth discovery with the addition of a reputation system. The architecture of the solution can be found in the [doc](/doc) folder.
+Traditional truth discovery approach estimate the truth from a set of values provided by multiple sources, which can be conflicting and heteregoneous. This repository contains **Nexus**, a proof-of-concept of a solution that improves truth discovery with the addition of a reputation system.
 
 ## Getting Started
 

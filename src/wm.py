@@ -10,18 +10,18 @@ import random
 import os
 from datetime import datetime
 
-from src import skald
+from src import nexus
 
 
 class WorkloadManager:
     """
     The Workload Manager is responsible for receiving a workload
-    and forward it to a Skald instance in an efficient way, per-
+    and forward it to a Nexus instance in an efficient way, per-
     forming the necessary operations to ensure compatibility.
 
     Attributes
     ----------
-    consolidator : Skald
+    consolidator : Nexus
         consolidation instance
 
     Methods
@@ -35,7 +35,7 @@ class WorkloadManager:
         # Set variables
         self.stateful = os.environ.get("STATEFUL", "false").lower() == "true"
         # Initialize consolidator
-        self.consolidator = skald.Skald(
+        self.consolidator = nexus.Nexus(
             k=int(os.environ.get("K", 10)),
             lf=float(os.environ.get("LF", 1)),
             dampening=float(os.environ.get("DAMPENING", 0.1)),
