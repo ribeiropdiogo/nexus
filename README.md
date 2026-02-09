@@ -137,3 +137,8 @@ After launching the containers, interaction with Nexus is done through the API a
     - The response includes two important fields: `objects` and `sources`:
         - The `objects` field includes a list of values order by their respective resulting confidence score in descending order, including information on the confidence score, source, and teh value itself
         - The `sources` field includes information on each participating source's reputation, accumulated ratings, and multinomial probability vector.
+
+
+## Authors
+
+- **Author information is omitted at this stage to preserve anonymity.**
