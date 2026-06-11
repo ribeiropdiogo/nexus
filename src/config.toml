@@ -1,8 +1,8 @@
 [consolidation]
-dampening = 0.8
+dampening = 0.9
 influence = 1.0
 
 [reputation]
-k = 5
+k = 10
 lf = 1.0
 stateful = true

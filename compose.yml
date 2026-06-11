@@ -4,9 +4,9 @@ services:
     container_name: mongodb
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: nexus
-      MONGO_INITDB_ROOT_PASSWORD: nexus
-      MONGO_INITDB_DATABASE: nexus
+      MONGODB_USER: nexus
+      MONGODB_PASS: nexus
+      MONGODB_DB: nexus
     ports:
       - "27017:27017"
     volumes:
@@ -20,11 +20,12 @@ services:
       - 8000:8000
     container_name: api
     environment:
-      - DAMPENING=0.3
+      - DAMPENING=0.9
       - INFLUENCE=1.0
-      - K=5
+      - K=10
       - LF=1.0
       - STATEFUL=true
       - MONGODB_PORT=27017
+      - MONGODB_HOST=mongodb
     depends_on:
       - mongodb
